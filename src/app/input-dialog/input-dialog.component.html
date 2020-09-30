@@ -1,0 +1,38 @@
+<clr-modal [(clrModalOpen)]="dialogOpen" [clrModalStaticBackdrop]=false>
+    <h3 class="modal-title">Modal Title</h3>
+    <div class="modal-body">
+        <span>
+            <form clrForm>
+                <clr-input-container class="clr-col-12">
+                    <label 
+                        class="clr-col-12 clr-col-md-4">First Name
+                    </label>
+                    <input 
+                        class="clr-col-12 clr-col-md-8" 
+                        clrInput type="text" 
+                        [(ngModel)]="firstName" 
+                        placeholder="Enter first name"
+                        name="firstName"
+                    />
+                </clr-input-container>
+                <clr-input-container class="clr-col-12">
+                    <label 
+                        class="clr-col-12 clr-col-md-4">Last Name
+                    </label>
+                    <input 
+                        class="clr-col-12 clr-col-md-8" 
+                        clrInput 
+                        type="text" 
+                        [(ngModel)]="lastName"
+                        placeholder="Enter last name"
+                        name="lastName" 
+                    />
+                </clr-input-container>
+            </form>
+        </span>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="closeDialog()">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="closeDialog()">Done</button>
+    </div>
+</clr-modal>
