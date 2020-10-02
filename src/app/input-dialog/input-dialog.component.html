@@ -1,38 +1,40 @@
-<clr-modal [(clrModalOpen)]="dialogOpen" [clrModalStaticBackdrop]=false>
-    <h3 class="modal-title">Modal Title</h3>
-    <div class="modal-body">
-        <form clrForm clrLayout="horizontal">
-            <clr-input-container [ngClass]="inputContainerClass">
-                <label 
-                    [ngClass]="labelClass">First Name
-                </label>
-                <input 
-                    class="responsive-field clr-col-12 clr-col-md-9" 
-                    clrInput type="text" 
-                    [(ngModel)]="firstName" 
-                    placeholder="Enter first name"
-                    name="firstName"
-                />
-            </clr-input-container>
-            <clr-input-container [ngClass]="inputContainerClass">
-                <label 
-                [ngClass]="labelClass">Last Name
-                </label>
-                <input 
-                    class="responsive-field clr-col-12 clr-col-md-9"
-                    clrInput 
-                    type="text" 
-                    [(ngModel)]="lastName"
-                    placeholder="Enter last name"
-                    name="lastName" 
-                />
-            </clr-input-container>
-        </form>
+<div class="modal" *ngIf="dialogOpen">
+    <div class="modal-dialog modal-md" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close " type="button" (click)=closeDialog()>
+                    <clr-icon shape="close"></clr-icon>
+                </button>
+                <h3 class="modal-title">Modal Title</h3>
+            </div>
+            <div class="modal-body">
+                <form class="clr-form clr-form-compact">
+                    <div class="clr-form-control clr-row">
+                      <label for="firstName" class="label-mod clr-control-label">First Name</label>
+                      <div class="clr-control-container input-container-mod">
+                        <div class="clr-input-wrapper input-wrapper-mod">
+                          <input type="text" id="firstName" placeholder="First Name" class="clr-input input-mod" />
+                            <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="clr-form-control clr-row">
+                      <label for="lastName" class="label-mod clr-control-label">Last Name</label>
+                      <div class="clr-control-container input-container-mod">
+                        <div class="clr-input-wrapper input-wrapper-mod">
+                          <input type="text" id="lastName" placeholder="Last Name" class="clr-input input-mod" />
+                          <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+                        </div>
+                      </div>
+                    </div>
+                </form>
+            </div>
+            <div class="footer-container">
+                <button type="button" class="btn btn-outline" (click)="closeDialog()">Cancel</button>
+                <button type="button" class="btn btn-primary" (click)="closeDialog()">Done</button>
+            </div>
+        </div>
     </div>
-    <div class="modal-footer responsive-footer">
-        <button type="button" class="btn btn-outline" (click)="closeDialog()">Cancel</button>
-        <button type="button" class="btn btn-primary" (click)="closeDialog()">Done</button>
-    </div>
-</clr-modal>
+</div>
+<div *ngIf="dialogOpen" class="modal-backdrop " aria-hidden="true"></div>
 
-<div *ngIf="dialogOpen" class="modal-backdrop"></div>

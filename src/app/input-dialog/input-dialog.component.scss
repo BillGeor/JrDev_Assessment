@@ -1,7 +1,61 @@
-.responsive-field {
-    width: 100%
+// General CSS classes
+.footer-container {
+    padding-top: 12px;
+    display: flex;
+    justify-content: flex-end;
 }
 
-.full-label {
-    width: 100%
+
+// Handle 610px < size breakpoint
+:host-context(.large) {
+    .label-mod {
+        padding-left: 10px;
+        padding-top: 2px;
+        width: 30%;
+    }
+    .input-mod {
+        width: 100%;
+    }
+    .input-container-mod {
+        width: 70%;
+    }
+    .input-wrapper-mod {
+        width: 90%;
+    }
+}
+
+// Handle 450px < size < 610px breakpoint
+:host-context(.medium) {
+    .label-mod {
+        padding-left: 10px;
+        padding-top: 2px;
+        width: 30%;
+    }
+    .input-mod {
+        width: 100%;
+    }
+    .input-container-mod {
+        width: 70%;
+    }
+    .input-wrapper-mod {
+        width: 95%;
+    }
+}
+
+// Handle size < 450px breakpoint
+:host-context(.small) {
+    .label-mod {
+        padding-left: 4px;
+        width: 100%;
+    }
+
+    .input-mod {
+        width: 100%;
+    }
+    .input-container-mod {
+        width: 100%;
+    }
+    .input-wrapper-mod {
+        width: 96%;
+    }
 }

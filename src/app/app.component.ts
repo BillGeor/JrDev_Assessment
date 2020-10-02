@@ -7,6 +7,35 @@ import { Observable, Subscription } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'jrDev-Asessment';
+  
+  screenSub: Subscription;
+  breakpointClass: String;
+
+  constructor(
+    public breakpointObserver: BreakpointObserver,
+  ) { }
+  
+  ngOnInit() {
+    this.screenSub = this.breakpointObserver
+      .observe([('(min-width: 450px)'), ('(min-width: 610px)')])
+      .subscribe( result => {
+        if (result.breakpoints["(min-width: 450px)"]) {
+          if (result.breakpoints["(min-width: 610px)"]) {
+            this.breakpointClass = "large";
+          } else {
+            this.breakpointClass = "medium";
+          }
+        } else {
+          this.breakpointClass = "small";
+        }
+      });
+  }
+
+  ngOnDestroy() {
+    this.screenSub.unsubscribe();
+  }
+
+  
 }
